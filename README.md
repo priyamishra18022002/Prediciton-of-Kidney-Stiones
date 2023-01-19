@@ -1,1 +1,1 @@
-# Prediciton-of-Kidney-Stiones
+# Kidney-Stone-Prediction

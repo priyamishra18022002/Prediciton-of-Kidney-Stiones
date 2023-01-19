@@ -1,0 +1,36 @@
+clc
+clear all
+close all
+warning off
+[filename,pathname]=uigetfile('*.*','Pick Up a Image File');
+filename=strcat(pathname,filename);
+a=imread(filename);
+imshow(a);
+b=rgb2gray(a);
+figure;
+imshow(b);
+impixelinfo;
+c=imbinarize(b,20/255);
+figure;
+imshow(c);
+d=imfill(c,'holes');
+figure;
+imshow(d);
+e=bwareaopen(d,1000);
+figure;
+imshow(e);
+PreprocessedImage=uint8(double(a).*repmat(e,[1 1 3]));
+figure;
+imshow(PreprocessedImage);
+PreprocessedImage=imadjust(PreprocessedImage,[0.3 0.7],[])+50;
+figure;
+imshow(PreprocessedImage);
+uo=rgb2gray(PreprocessedImage);
+figure;
+imshow(uo);
+mo=medfilt2(uo,[5 5]);
+figure;
+imshow(mo);
+po=mo>250;
+figure;
+imshow(po);
