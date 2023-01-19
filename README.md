@@ -1,1 +1,1 @@
-# Kidney-Stone-Prediction
+# Prediction-of-Kidney-Stones
